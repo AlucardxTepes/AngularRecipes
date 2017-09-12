@@ -11,7 +11,6 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class ShoppingEditComponent implements OnInit {
   addIngredientForm: FormGroup;
-  isFormValid: boolean;
   editSubscription: Subscription;
   editItemIndex: number;
   editMode: boolean;
@@ -24,10 +23,6 @@ export class ShoppingEditComponent implements OnInit {
     this.addIngredientForm = new FormGroup({
       'name': new FormControl(null, Validators.required),
       'amount': new FormControl(null, [Validators.required, Validators.pattern('^[1-9]+[0-9]*$')])
-    });
-    // disable submit button if form is invalid
-    this.addIngredientForm.valueChanges.subscribe(() => {
-      this.isFormValid = this.addIngredientForm.valid;
     });
     // subscribe to ingredient list items clicks
     this.editSubscription = this.shoppingListService.startedEditing.subscribe(
