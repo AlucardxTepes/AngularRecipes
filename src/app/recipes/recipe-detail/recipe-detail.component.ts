@@ -18,7 +18,6 @@ export class RecipeDetailComponent implements OnInit {
               private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    console.log(this.recipe);
     this.route.params.subscribe(
       (params: Params) => {
         this.id = Number.parseInt(params['id']);
