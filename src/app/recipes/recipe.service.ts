@@ -4,7 +4,7 @@ import {Subject} from 'rxjs/Subject';
 export class RecipeService {
   onRecipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [];
+  private recipes: Recipe[] = [ new Recipe('test', 'description', 'https://i.vimeocdn.com/portrait/58832_300x300', null)];
 
   getRecipes() {
     return this.recipes.slice();
